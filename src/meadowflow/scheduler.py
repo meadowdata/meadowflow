@@ -7,9 +7,7 @@ import itertools
 import traceback
 from types import TracebackType
 from typing import (
-    Any,
     Dict,
-    Generator,
     List,
     Tuple,
     Iterable,
@@ -186,7 +184,7 @@ class Scheduler:
 
         self._awaited = False
 
-    async def _async_init(self) -> Scheduler:
+    async def __aenter__(self) -> Scheduler:
         if self._awaited:
             return self
         # the event log stores events and lets us subscribe to events
@@ -211,9 +209,6 @@ class Scheduler:
 
         self._awaited = True
         return self
-
-    def __await__(self) -> Generator[Any, None, Scheduler]:
-        return self._async_init().__await__()
 
     def register_job_runner(
         self, job_runner_constructor: Callable[[EventLog], JobRunner]
@@ -494,22 +489,6 @@ class Scheduler:
                             high_timestamp,
                         )
 
-    # def manual_run(
-    #     self, job_name: TopicName, overrides: Optional[JobRunOverrides] = None
-    # ) -> None:
-    #     """
-    #     Execute the Run Action on the specified job.
-
-    #     Important--when this function returns, it's possible that no events have been
-    #     created yet, not even RUN_REQUESTED.
-    #     """
-    #     if job_name not in self._jobs:
-    #         raise ValueError(f"Unknown job: {job_name}")
-    #     job = self._jobs[job_name]
-    #     asyncio.get_running_loop().call_soon(
-    #         lambda: asyncio.create_task(self._run_action(job, Actions.run, overrides))
-    #     )
-
     def manual_run(
         self, job_name: TopicName, overrides: Optional[JobRunOverrides] = None
     ) -> Task[str]:
@@ -571,7 +550,12 @@ class Scheduler:
                 traceback.print_exc()
             await asyncio.sleep(self._job_runner_poll_delay_seconds)
 
-    async def shutdown(self) -> None:
+    async def __aexit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        traceback: Optional[TracebackType],
+    ) -> None:
         self._poll_job_runners_loop.cancel()
         # any exceptions are ignored here
         ev_ex, time_ex, poll_ex = await asyncio.gather(
@@ -588,17 +572,6 @@ class Scheduler:
             raise ev_ex
         if time_ex is not None:
             raise time_ex
-
-    def __aenter__(self) -> Scheduler:
-        return self
-
-    async def __aexit__(
-        self,
-        exc_type: Optional[Type[BaseException]],
-        exc_value: Optional[BaseException],
-        traceback: Optional[TracebackType],
-    ) -> None:
-        await self.shutdown()
 
     def all_are_waiting(self) -> bool:
         """
