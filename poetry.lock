@@ -1483,7 +1483,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-paramiko"
-version = "2.8.13"
+version = "2.10.0"
 description = "Typing stubs for paramiko"
 category = "main"
 optional = false
@@ -1560,7 +1560,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "66c962d20ef9c48d62cf7aa55015e5c10e2e12cf1f3e66df603d9651a0aaa3af"
+content-hash = "5c8ea96ac10e6aa81004e0c5a0a3a4c7a2c9e2e3658558c56c7b33f12c5cd73f"
 
 [metadata.files]
 aiobotocore = [
@@ -2499,8 +2499,8 @@ types-ipaddress = [
     {file = "types_ipaddress-1.0.8-py3-none-any.whl", hash = "sha256:4933b74da157ba877b1a705d64f6fa7742745e9ffd65e51011f370c11ebedb55"},
 ]
 types-paramiko = [
-    {file = "types-paramiko-2.8.13.tar.gz", hash = "sha256:97a286a7db318aa1aafc6548effc7507ae5f242cec84f56dfeb50fea20ee6576"},
-    {file = "types_paramiko-2.8.13-py3-none-any.whl", hash = "sha256:2e3192b84538bd38505da032120a4cc39334202fd49ffe7400fcfb9d7dc019af"},
+    {file = "types-paramiko-2.10.0.tar.gz", hash = "sha256:ab6893d5fce5ed06964d61939ed6a7168ab14952945a90995a628a5e82a5e161"},
+    {file = "types_paramiko-2.10.0-py3-none-any.whl", hash = "sha256:f558bb26ff3b085f7282125559927ebf9e1c08410cd4aac5766addbf4d15c8bc"},
 ]
 types-protobuf = [
     {file = "types-protobuf-3.19.12.tar.gz", hash = "sha256:b022247347471219acbe2fe68d2f3623d788252e99e9b97358b7ab904d268a78"},
