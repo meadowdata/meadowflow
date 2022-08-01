@@ -640,8 +640,8 @@ flake8 = ">=3.8.0,<5.0"
 typing-extensions = ">=3.7.4.2,<5.0"
 
 [package.extras]
-dev = ["mypy", "flake8 (<4.0)", "flake8-annotations", "flake8-bugbear", "flake8-commas", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-polyfill", "flake8-tabs", "flake8-type-annotations", "pep8-naming", "types-setuptools"]
 test = ["flake8-docstrings"]
+dev = ["types-setuptools", "pep8-naming", "flake8-type-annotations", "flake8-tabs", "flake8-polyfill", "flake8-literal", "flake8-import-order", "flake8-docstrings", "flake8-datetimez", "flake8-continuation", "flake8-commas", "flake8-bugbear", "flake8-annotations", "flake8 (<4.0)", "mypy"]
 
 [[package]]
 name = "frozenlist"
@@ -900,8 +900,8 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
 
 [[package]]
 name = "protobuf"
@@ -1483,7 +1483,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-paramiko"
-version = "2.8.13"
+version = "2.11.3"
 description = "Typing stubs for paramiko"
 category = "main"
 optional = false
@@ -1560,7 +1560,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "66c962d20ef9c48d62cf7aa55015e5c10e2e12cf1f3e66df603d9651a0aaa3af"
+content-hash = "8232a5d2dbf682eb24069bf9695910c3b0503b6bcb4fbdbe9dd548568e7d1af6"
 
 [metadata.files]
 aiobotocore = [
@@ -2499,8 +2499,8 @@ types-ipaddress = [
     {file = "types_ipaddress-1.0.8-py3-none-any.whl", hash = "sha256:4933b74da157ba877b1a705d64f6fa7742745e9ffd65e51011f370c11ebedb55"},
 ]
 types-paramiko = [
-    {file = "types-paramiko-2.8.13.tar.gz", hash = "sha256:97a286a7db318aa1aafc6548effc7507ae5f242cec84f56dfeb50fea20ee6576"},
-    {file = "types_paramiko-2.8.13-py3-none-any.whl", hash = "sha256:2e3192b84538bd38505da032120a4cc39334202fd49ffe7400fcfb9d7dc019af"},
+    {file = "types-paramiko-2.11.3.tar.gz", hash = "sha256:23af5366aa3f9bf3f76beb379bc2efd71ffd02a701a32fe8e822e3ee8b8d5787"},
+    {file = "types_paramiko-2.11.3-py3-none-any.whl", hash = "sha256:33ec5f1c28a5558267860d1567a440dad73a77063669c226ee956e905c45541e"},
 ]
 types-protobuf = [
     {file = "types-protobuf-3.19.12.tar.gz", hash = "sha256:b022247347471219acbe2fe68d2f3623d788252e99e9b97358b7ab904d268a78"},
