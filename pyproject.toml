@@ -39,7 +39,7 @@ types-aiobotocore = {extras = ["essential"], version = "^2.1.1"}
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
 mypy = "0.*"
-black = {version = "^22.1", allow-prereleases = true}
+black = {version = "^22.10", allow-prereleases = true}
 grpcio-tools = "^1.39.0"
 pandas-stubs = "^1.2.0"
 types-protobuf = "^3.19.12"
